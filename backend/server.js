@@ -1,3 +1,239 @@
+// const express = require('express');
+// const mongoose = require('mongoose');
+// const cors = require('cors');
+// const path = require('path');
+// const bcrypt = require('bcryptjs');
+// const jwt = require('jsonwebtoken');
+// require('dotenv').config();
+
+// const app = express();
+// const JWT_SECRET = process.env.JWT_SECRET || 'mySuperSecret';
+
+// app.use(express.json());
+// app.use(cors());
+// app.use(express.static(path.join(__dirname, '../frontend')));
+
+// // MongoDB connection
+// mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/simDashboard', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// }).then(() => console.log('✅ MongoDB connected'))
+//   .catch(err => console.error('❌ MongoDB error:', err));
+
+// // Schemas
+// const userSchema = new mongoose.Schema({
+//   name: String,
+//   email: { type: String, unique: true },
+//   password: String,
+//   role: String
+// });
+// const User = mongoose.model('User', userSchema);
+
+// const simRequestSchema = new mongoose.Schema({
+//   employeeName: String,
+//   employeeId: String,
+//   mobile: String,
+//   designation: String,
+//   department: String,
+//   email: String,
+//   currentProvider: String,
+//   requestType: String,
+//   justification: String,
+//   duration: String,
+//   priority: String,
+//   status: { type: String, default: 'Pending' },
+//   hod: {
+//     name: String,
+//     email: String,
+//     approvalDate: String
+//   },
+//   assignedSim: String,
+//   createdAt: { type: Date, default: Date.now }
+// });
+// const SimRequest = mongoose.model('SimRequest', simRequestSchema);
+
+// const simInventorySchema = new mongoose.Schema({
+//   simNumber: String,
+//   provider: String,
+//   status: { type: String, default: 'Available' },
+//   assignedTo: String,
+//   createdAt: { type: Date, default: Date.now }
+// });
+// const SimInventory = mongoose.model('SimInventory', simInventorySchema);
+
+// // Middleware
+// function verifyToken(req, res, next) {
+//   const authHeader = req.headers['authorization'];
+//   const token = authHeader && authHeader.split(' ')[1];
+//   if (!token) return res.status(401).json({ error: 'Unauthorized' });
+
+//   jwt.verify(token, JWT_SECRET, (err, user) => {
+//     if (err) return res.status(403).json({ error: 'Invalid token' });
+//     req.user = user;
+//     next();
+//   });
+// }
+
+// function requireAdmin(req, res, next) {
+//   if (req.user.role !== 'Admin') {return res.status(403).json({ error: 'Access denied' });
+// }
+//   next();
+// }
+
+// // Auth Routes
+// app.post('/api/signup', async (req, res) => {
+//   const { name, email, password, role } = req.body;
+//   try {
+//     const hashed = await bcrypt.hash(password, 10);
+//     const user = new User({ name, email, password: hashed, role });
+//     await user.save();
+//     res.status(201).json({ message: 'Signup successful!' });
+//   } catch (err) {
+//     res.status(400).json({ error: 'Email already exists or invalid data.' });
+//   }
+// });
+
+// app.post('/api/login', async (req, res) => {
+//   const { email, password } = req.body;
+//   try {
+//     const user = await User.findOne({ email });
+//     if (!user) return res.status(404).json({ error: 'User not found' });
+
+//     const isMatch = await bcrypt.compare(password, user.password);
+//     if (!isMatch) return res.status(400).json({ error: 'Invalid credentials' });
+
+//     const token = jwt.sign({ id: user._id, email: user.email, role: user.role }, JWT_SECRET, {
+//       expiresIn: '2h'
+//     });
+
+//     res.json({ message: 'Login successful', role: user.role, token });
+//   } catch (err) {
+//     res.status(500).json({ error: 'Server error' });
+//   }
+// });
+
+// // SIM Request Routes
+// app.post('/api/requests', verifyToken, async (req, res) => {
+//   try {
+//     const request = new SimRequest(req.body);
+//     await request.save();
+//     res.status(201).json({ message: 'Request submitted successfully', request });
+//   } catch (err) {
+//     res.status(500).json({ error: 'Failed to submit request' });
+//   }
+// });
+
+// app.get('/api/requests', verifyToken, async (req, res) => {
+//   try {
+//     const filter = req.user.role === 'Employee' ? { email: req.user.email } : {};
+//     const requests = await SimRequest.find(filter).sort({ createdAt: -1 });
+//     res.json(requests);
+//   } catch (err) {
+//     res.status(500).json({ error: 'Failed to fetch requests' });
+//   }
+// });
+// app.put('/api/requests/:id/approve', verifyToken, requireAdmin, async (req, res) => {
+//   try {
+//     console.log("👉 Approving request ID:", req.params.id);  // log ID
+//     const updated = await SimRequest.findByIdAndUpdate(
+//       req.params.id,
+//       { status: 'Approved' },
+//       { new: true }
+//     );
+//     console.log("🔁 Updated object:", updated); // log what got updated
+
+//     if (!updated) {
+//       return res.status(404).json({ error: "Request not found" });
+//     }
+
+//     res.json(updated);
+//   } catch (err) {
+//     console.error("❌ Approval error:", err);
+//     res.status(500).json({ error: "Failed to approve request" });
+//   }
+// });
+
+// app.put('/api/requests/:id/reject', verifyToken, requireAdmin, async (req, res) => {
+//   try {
+//     const updated = await SimRequest.findByIdAndUpdate(
+//       req.params.id,
+//       { status: 'Rejected' },
+//       { new: true }
+//     );
+//     res.json(updated);
+//   } catch (err) {
+//     res.status(500).json({ error: 'Failed to reject request' });
+//   }
+// });
+
+// // SIM Inventory Routes
+// app.post('/api/inventory', async (req, res) => {
+//   try {
+//     const sim = new SimInventory(req.body);
+//     await sim.save();
+//     res.status(201).json({ message: 'SIM added to inventory successfully' });
+//   } catch (err) {
+//     res.status(500).json({ error: 'Failed to save SIM inventory' });
+//   }
+// });
+
+// app.get('/api/inventory', async (req, res) => {
+//   try {
+//     const filter = {};
+//     if (req.query.status) filter.status = req.query.status;
+//     if (req.query.provider) filter.provider = req.query.provider;
+
+//     const sims = await SimInventory.find(filter);
+//     res.json(sims);
+//   } catch (err) {
+//     res.status(500).json({ error: 'Failed to fetch SIM inventory' });
+//   }
+// });
+
+// app.get('/api/inventory/available', async (req, res) => {
+//   try {
+//     const available = await SimInventory.find({ status: 'Available' });
+//     res.json(available);
+//   } catch (err) {
+//     res.status(500).json({ error: 'Could not get available SIMs' });
+//   }
+// });
+
+// app.post('/api/inventory/assign', verifyToken, async (req, res) => {
+//   const { simId, requestId } = req.body;
+
+//   try {
+//     const sim = await SimInventory.findById(simId);
+//     if (!sim || sim.status === 'Assigned') {
+//       return res.status(400).json({ error: 'SIM not available' });
+//     }
+
+//     const request = await SimRequest.findById(requestId);
+//     if (!request || request.status !== 'Approved') {
+//       return res.status(400).json({ error: 'Invalid or unapproved request' });
+//     }
+
+//     sim.status = 'Assigned';
+//     sim.assignedTo = request.employeeName;
+//     await sim.save();
+
+//     request.assignedSim = sim.simNumber;
+//     await request.save();
+
+//     res.json({ message: 'SIM assigned successfully!' });
+//   } catch (err) {
+//     res.status(500).json({ error: 'Assignment failed' });
+//   }
+// });
+
+// // Admin Test
+// app.get('/api/admin/stats', verifyToken, requireAdmin, (req, res) => {
+//   res.json({ message: 'Hello Admin 👑, here are your stats!' });
+// });
+
+// // Start Server
+// const PORT = process.env.PORT || 5000;
+// app.listen(PORT, () => console.log(`🚀 Server running at http://localhost:${PORT}`));
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
