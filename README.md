@@ -9,9 +9,7 @@
 
 <details>
   <summary>Click to expand</summary>
-
-Mobile_Sim_Management_System/
-│── backend/ # Node.js + Express + MongoDB
+├── backend/ # Node.js + Express + MongoDB
 │ ├── server.js # Main backend entry file
 │ ├── models/ # Database models (MongoDB schemas)
 │ ├── routes/ # API routes
@@ -20,7 +18,7 @@ Mobile_Sim_Management_System/
 │ ├── utils/ # Helper functions
 │ └── .env # Environment variables (not in repo)
 │
-│── frontend/ # React UI
+├── frontend/ # React UI
 │ ├── src/
 │ │ ├── components/ # Reusable UI components
 │ │ ├── pages/ # Employee, HR, Admin dashboards
@@ -30,7 +28,7 @@ Mobile_Sim_Management_System/
 │ ├── public/ # Static files
 │ └── package.json
 │
-│── screenshots/ # UI screenshots for README
+├── screenshots/ # UI screenshots for README
 │ ├── login.png
 │ ├── employee-dashboard.png
 │ ├── hr-dashboard.png
@@ -41,8 +39,6 @@ Mobile_Sim_Management_System/
 ├── README.md
 ├── package.json
 └── package-lock.json
-
-
 ## 🚀 Features  
 
 - 👨‍💼 **Employee Dashboard** – Request new SIMs, track request status, view activated SIMs.  
