@@ -91,35 +91,27 @@ npm install
 npm start
 
 
-## 📸 Screenshots  
 
-### 🔐 Login & Signup
-<a href="./screenshots/login.png" target="_blank">
-  <img src="./screenshots/login.png" alt="Login Screenshot" width="400"/>
-</a>
 
-### 👨‍💼 Employee Dashboard
-<a href="./screenshots/employee-dashboard.png" target="_blank">
-  <img src="./screenshots/employee-dashboard.png" alt="Employee Dashboard" width="400"/>
-</a>
+## 📸 Screenshots Gallery
 
-### 👩‍💼 HR Dashboard
-<a href="./screenshots/hr-dashboard.png" target="_blank">
-  <img src="./screenshots/hr-dashboard.png" alt="HR Dashboard" width="400"/>
-</a>
+<table>
+<tr>
+  <td><a href="./screenshots/login.png" target="_blank">
+    <img src="./screenshots/login.png" width="200"/></a></td>
+  <td><a href="./screenshots/employee-dashboard.png" target="_blank">
+    <img src="./screenshots/employee-dashboard.png" width="200"/></a></td>
+  <td><a href="./screenshots/hr-dashboard.png" target="_blank">
+    <img src="./screenshots/hr-dashboard.png" width="200"/></a></td>
+</tr>
+<tr>
+  <td><a href="./screenshots/admin-dashboard.png" target="_blank">
+    <img src="./screenshots/admin-dashboard.png" width="200"/></a></td>
+  <td><a href="./screenshots/sim-inventory.png" target="_blank">
+    <img src="./screenshots/sim-inventory.png" width="200"/></a></td>
+  <td><a href="./screenshots/request-flow.png" target="_blank">
+    <img src="./screenshots/request-flow.png" width="200"/></a></td>
+</tr>
+</table>
 
-### 🛡️ Admin Dashboard
-<a href="./screenshots/admin-dashboard.png" target="_blank">
-  <img src="./screenshots/admin-dashboard.png" alt="Admin Dashboard" width="400"/>
-</a>
-
-### 📊 SIM Inventory List
-<a href="./screenshots/sim-inventory.png" target="_blank">
-  <img src="./screenshots/sim-inventory.png" alt="SIM Inventory" width="400"/>
-</a>
-
-### ✅ Request Flow with HOD & HR
-<a href="./screenshots/request-flow.png" target="_blank">
-  <img src="./screenshots/request-flow.png" alt="Request Flow" width="400"/>
-</a>
 
