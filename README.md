@@ -9,26 +9,28 @@
 
 <details>
   <summary>Click to expand</summary>
-├── backend/ # Node.js + Express + MongoDB
-│ ├── server.js # Main backend entry file
-│ ├── models/ # Database models (MongoDB schemas)
-│ ├── routes/ # API routes
-│ ├── controllers/ # Business logic for routes
-│ ├── middlewares/ # Auth & validation middleware
-│ ├── utils/ # Helper functions
-│ └── .env # Environment variables (not in repo)
+
+Mobile_Sim_Management_System/
+├── backend/
+│ ├── server.js
+│ ├── models/
+│ ├── routes/
+│ ├── controllers/
+│ ├── middlewares/
+│ ├── utils/
+│ └── .env
 │
-├── frontend/ # React UI
+├── frontend/
 │ ├── src/
-│ │ ├── components/ # Reusable UI components
-│ │ ├── pages/ # Employee, HR, Admin dashboards
-│ │ ├── assets/ # Images, logos, icons
-│ │ ├── services/ # API calls (Axios/Fetch)
-│ │ └── App.js # React app root
-│ ├── public/ # Static files
+│ │ ├── components/
+│ │ ├── pages/
+│ │ ├── assets/
+│ │ ├── services/
+│ │ └── App.js
+│ ├── public/
 │ └── package.json
 │
-├── screenshots/ # UI screenshots for README
+├── screenshots/
 │ ├── login.png
 │ ├── employee-dashboard.png
 │ ├── hr-dashboard.png
@@ -39,6 +41,11 @@
 ├── README.md
 ├── package.json
 └── package-lock.json
+
+bash
+Copy code
+
+</details>
 
 
 
