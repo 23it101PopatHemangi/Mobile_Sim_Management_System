@@ -71,7 +71,9 @@ Mobile_Sim_Management_System/
 | Other Tools | JWT Auth, Twilio/Nexmo (dummy logs), REST APIs |
 
 ---
-![Login](./screenshots/login.png)
+
+![Login Screenshot](./Screenshots/screenshots/login.png)
+
 ## ⚙️ Installation  
 
 ```bash
