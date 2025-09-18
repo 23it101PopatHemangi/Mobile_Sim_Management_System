@@ -71,8 +71,11 @@ Mobile_Sim_Management_System/
 | Other Tools | JWT Auth, Twilio/Nexmo (dummy logs), REST APIs |
 
 ---
-
+## Output 
 ![Login Screenshot](./Screenshots/screenshots/login.png)
+![Employee Dashboard](./Screenshots/screenshots/employee_dashboard.png)
+![HR Dashboard](./Screenshots/screenshots/HR_Dashboard.png)
+![Admin Dashboard](./Screenshots/screenshots/admin_dashboard.png)
 
 ## ⚙️ Installation  
 
