@@ -95,7 +95,7 @@ npm start
 
 ## 📸 Screenshots Gallery
 
-![Login](./Screenshots/login.png)
+![Login](.Screenshots/screenshots/login.png)
 ![Employee Dashboard](./screenshots/employee-dashboard.png)
 ![HR Dashboard](./screenshots/hr-dashboard.png)
 ![Admin Dashboard](./screenshots/admin-dashboard.png)
