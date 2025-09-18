@@ -42,8 +42,7 @@ Mobile_Sim_Management_System/
 ├── package.json
 └── package-lock.json
 
-bash
-Copy code
+
 
 </details>
 
