@@ -95,40 +95,11 @@ npm start
 
 ## 📸 Screenshots Gallery
 
-<table>
-<tr>
-  <td align="center">
-    <a href="./screenshots/login.png" target="_blank">
-      <img src="./screenshots/login.png" width="200"/><br>Login
-    </a>
-  </td>
-  <td align="center">
-    <a href="./screenshots/employee-dashboard.png" target="_blank">
-      <img src="./screenshots/employee-dashboard.png" width="200"/><br>Employee Dashboard
-    </a>
-  </td>
-  <td align="center">
-    <a href="./screenshots/hr-dashboard.png" target="_blank">
-      <img src="./screenshots/hr-dashboard.png" width="200"/><br>HR Dashboard
-    </a>
-  </td>
-</tr>
-<tr>
-  <td align="center">
-    <a href="./screenshots/admin-dashboard.png" target="_blank">
-      <img src="./screenshots/admin-dashboard.png" width="200"/><br>Admin Dashboard
-    </a>
-  </td>
-  <td align="center">
-    <a href="./screenshots/sim-inventory.png" target="_blank">
-      <img src="./screenshots/sim-inventory.png" width="200"/><br>SIM Inventory
-    </a>
-  </td>
-  <td align="center">
-    <a href="./screenshots/request-flow.png" target="_blank">
-      <img src="./screenshots/request-flow.png" width="200"/><br>Request Flow
-    </a>
-  </td>
-</tr>
-</table>
+![Login](./screenshots/login.png)
+![Employee Dashboard](./screenshots/employee-dashboard.png)
+![HR Dashboard](./screenshots/hr-dashboard.png)
+![Admin Dashboard](./screenshots/admin-dashboard.png)
+![SIM Inventory](./screenshots/sim-inventory.png)
+![Request Flow](./screenshots/request-flow.png)
+
 
