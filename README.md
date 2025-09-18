@@ -5,6 +5,43 @@
 > A full-stack web application for managing employee SIM card requests, approvals, and lifecycle operations (Activation, Suspension, Porting) with **Employee, HR, and Admin dashboards**.  
 
 ---
+## 📂 Project Structure  
+
+<details>
+  <summary>Click to expand</summary>
+
+Mobile_Sim_Management_System/
+│── backend/ # Node.js + Express + MongoDB
+│ ├── server.js # Main backend entry file
+│ ├── models/ # Database models (MongoDB schemas)
+│ ├── routes/ # API routes
+│ ├── controllers/ # Business logic for routes
+│ ├── middlewares/ # Auth & validation middleware
+│ ├── utils/ # Helper functions
+│ └── .env # Environment variables (not in repo)
+│
+│── frontend/ # React UI
+│ ├── src/
+│ │ ├── components/ # Reusable UI components
+│ │ ├── pages/ # Employee, HR, Admin dashboards
+│ │ ├── assets/ # Images, logos, icons
+│ │ ├── services/ # API calls (Axios/Fetch)
+│ │ └── App.js # React app root
+│ ├── public/ # Static files
+│ └── package.json
+│
+│── screenshots/ # UI screenshots for README
+│ ├── login.png
+│ ├── employee-dashboard.png
+│ ├── hr-dashboard.png
+│ ├── admin-dashboard.png
+│ ├── sim-inventory.png
+│ └── request-flow.png
+│
+├── README.md
+├── package.json
+└── package-lock.json
+
 
 ## 🚀 Features  
 
